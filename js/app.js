@@ -24,37 +24,10 @@ function Store(name, min, max, avg, total, salesPerhour) {
   this.avg = avg;
   this.total = total;
   this.salesPerhour = [];
-
+}
 this.getCustomers = function () {
   return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-},
-  (this.cookiesPerhour = function () {
-   for (let i = 0; i < timeofDay.length; i++) {
-      let cookieMath = Math.ceil(this.getCustomers() * this.avg);
-      this.total += cookieMath;
-      this.salesPerhour.push(cookieMath);
-    }
-  },
-    this.render = function() {
-let row = document.createElememt(tr);
-row.appendChild(row);
-    for (let i = 0; i < timeofDay.length; i++) {
-      let list = document.createElement('td');
-      list.textContent = this.salesPerhour[i];
-      salesData.appendChild(list);
-  }
-    }
-  };
-new Store('Seattle', 23, 65, 6.3, 0, []);
-this.render();
-new Store('Tokyo', 3, 24, 1.2, 0, []);
-Store.render();
-new Store('Dubai', 11, 38, 3.7, 0, []);
-this.render();
-new Store('Paris', 20, 38, 2.3, 0, []);
-Store.render();
-new Store('Lima', 2, 16, 4.6, 0, []);
-Store.render();
+};
 
 // let seattleObject = {
 //   name: 'Seattle',
@@ -69,7 +42,7 @@ Store.render();
 
 //   render: function () {
 //     seattleObject.cookiesPerhour();
-//     
+//
 //     }
 //     let totalcookies = document.createElement('li');
 //     totalcookies.textContent = `Total: ${this.total}`;
