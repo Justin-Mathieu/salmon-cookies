@@ -38,31 +38,26 @@ main {
   flex-wrap: wrap;
   margin: auto;
   justify-content: center;
+  border: 5px solid black;
 }
 #hours {
-  width: 960px;
+  width: 950px;
   display: flex;
   flex-wrap: wrap;
   background-color: beige;
-  margin: auto;
   margin-bottom: 50px;
   align-self: flex-end;
+  justify-content: space-around;
 }
-#hours h3 {
+h3 {
   background-color: rgb(155, 152, 152);
   text-align: center;
   height: 30px;
   font-size: x-large;
-  width: 960px;
+  width: 950px;
 }
 #hours img {
-  height: 300px;
   margin-top: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-#cutter {
-  margin-left: 300px;
 }
 #storehours {
   margin-left: 500px;
@@ -74,4 +69,38 @@ main {
   list-style: none;
   padding: 10px;
   font-size: larger;
+}
+
+#about img {
+  width: 950px;
+}
+#about p {
+  background-color: beige;
+  width: 600px;
+  height: 600px;
+  overflow: scroll;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#merch {
+  display: block;
+  flex-wrap: wrap;
+  background-color: beige;
+}
+#merch p {
+  width: 300px;
+  padding-left: 40px;
+}
+#merch img {
+  padding-left: 40px;
+}
+footer {
+  background-color: grey;
+  height: 30px;
+  text-align: center;
+  margin-top: 50px;
+}
+footer i {
+  padding-left: 50px;
 }
