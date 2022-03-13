@@ -1,4 +1,5 @@
 'use strict';
+
 /////////////////Seattle///////////////////
 let salesData = document.getElementById('salesData');
 let tableBody = document.getElementById('tableBody');
@@ -33,7 +34,6 @@ Store.prototype.getCustomers = function () {
 Store.prototype.cookiesPerhour = function () {
   for (let i = 0; i < timeofDay.length; i++) {
     let cookieMath = Math.ceil(this.getCustomers() * this.avg);
-    console.log(cookieMath);
     this.total += cookieMath;
     this.salesPerhour.push(cookieMath);
   }
@@ -75,3 +75,23 @@ tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
+
+let locationInput = document.getElementById('location');
+let minInput = document.getElementById('min');
+let maxInput = document.getElementById('max');
+let avgInput = document.getElementById('avg');
+let button = document.getElementById('button');
+
+button.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  let created = new Store(
+    locationInput.value,
+    minInput.value,
+    maxInput.value,
+    avgInput.value
+  );
+  Store.created.getCustomers();
+  Store.created.cookiesPerhour();
+  Store.created.render();
+});
