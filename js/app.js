@@ -1,5 +1,25 @@
 'use strict';
 
+let locationInput = document.getElementById('location');
+let minInput = document.getElementById('min');
+let maxInput = document.getElementById('max');
+let avgInput = document.getElementById('avg');
+let button = document.getElementById('button');
+
+button.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  let created = new Store(
+    locationInput.value,
+    minInput.value,
+    maxInput.value,
+    avgInput.value
+  );
+  // created.getCustomers();
+  // created.cookiesPerhour();
+  created.render();
+});
+
 /////////////////Seattle///////////////////
 let salesData = document.getElementById('salesData');
 let tableBody = document.getElementById('tableBody');
@@ -39,7 +59,7 @@ Store.prototype.cookiesPerhour = function () {
   }
 };
 function time() {
-  let header = document.createElement('th');
+  let header = document.createElement('tr');
   salesData.appendChild(header);
 
   let headRow = document.createElement('td');
@@ -56,14 +76,17 @@ Store.prototype.render = function () {
   let data = document.createElement('td');
   data.textContent = this.name + this.salesPerhour;
   tableBody.appendChild(data);
+  // };
 
-  let footerRow = document.createElement('th');
+  // function footer() {
+  let footerRow = document.createElement('tr');
   footerTotal.appendChild(footerRow);
 
   let footer = document.createElement('td');
   footer.textContent = this.total;
   footerTotal.appendChild(footer);
 };
+
 let seattle = new Store('Seattle', 23, 65, 6.3);
 let tokyo = new Store('Tokyo', 3, 24, 1.2);
 let dubai = new Store('Dubai', 11, 38, 2.3);
@@ -75,23 +98,4 @@ tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
-
-let locationInput = document.getElementById('location');
-let minInput = document.getElementById('min');
-let maxInput = document.getElementById('max');
-let avgInput = document.getElementById('avg');
-let button = document.getElementById('button');
-
-button.addEventListener('click', function (event) {
-  event.preventDefault();
-
-  let created = new Store(
-    locationInput.value,
-    minInput.value,
-    maxInput.value,
-    avgInput.value
-  );
-  Store.created.getCustomers();
-  Store.created.cookiesPerhour();
-  Store.created.render();
-});
+footer();
