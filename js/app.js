@@ -40,6 +40,7 @@ let timeofDay = [
   '6pm',
   '7pm',
 ];
+let locations = [];
 function Store(name, min, max, avg) {
   this.name = name;
   this.min = min;
@@ -47,6 +48,7 @@ function Store(name, min, max, avg) {
   this.avg = avg;
   this.salesPerhour = [];
   this.total = 0;
+  locations.push(this);
 }
 Store.prototype.getCustomers = function () {
   return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
@@ -61,36 +63,39 @@ Store.prototype.cookiesPerhour = function () {
 function time() {
   let header = document.createElement('tr');
   salesData.appendChild(header);
-
-  let headRow = document.createElement('td');
-  headRow.textContent = timeofDay;
-  salesData.appendChild(headRow);
+  for (let i = 0; i < timeofDay.length; i++) {
+    let headRow = document.createElement('td');
+    headRow.textContent = timeofDay[i];
+    salesData.appendChild(headRow);
+  }
 }
 time();
 Store.prototype.render = function () {
   this.cookiesPerhour();
+  // for (let i = 0; i < locations.length; i++) {
+  let locationRow = document.createElement('tr');
+  tableBody.appendChild(locationRow);
+  let locationName = document.createElement('td');
+  locationName.textContent = this.name;
+  tableBody.appendChild(locationName);
 
-  let salesRow = document.createElement('tr');
-  tableBody.appendChild(salesRow);
-
-  let data = document.createElement('td');
-  data.textContent = this.name + this.salesPerhour;
-  tableBody.appendChild(data);
-  // };
-
+  for (let j = 0; j < timeofDay.length; j++) {
+    let dataCell = document.createElement('td');
+    dataCell.textContent = this.salesPerhour[j];
+    tableBody.appendChild(dataCell);
+  }
   // function footer() {
-  let footerRow = document.createElement('tr');
+  let footerRow = document.createElement('th');
   footerTotal.appendChild(footerRow);
 
   let footer = document.createElement('td');
-  footer.textContent = this.total;
+  footer.textContent = `${this.name} Total: ${this.total}`;
   footerTotal.appendChild(footer);
 };
-
 let seattle = new Store('Seattle', 23, 65, 6.3);
 let tokyo = new Store('Tokyo', 3, 24, 1.2);
-let dubai = new Store('Dubai', 11, 38, 2.3);
-let paris = new Store('Paris', 20, 16, 4.6);
+let dubai = new Store('Dubai', 11, 38, 3.7);
+let paris = new Store('Paris', 20, 38, 2.3);
 let lima = new Store('Lima', 2, 16, 4.6);
 
 seattle.render();
@@ -98,4 +103,3 @@ tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
-footer();

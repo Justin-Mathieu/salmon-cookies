@@ -104,3 +104,15 @@ footer i {
   padding-left: 50px;
   /* color:aliceblue: */
 }
+tr {
+  background-color: aqua;
+  width: 20px;
+  height: 20px;
+}
+td {
+  background-color: red;
+  border: 5px solid black;
+}
+table {
+  display: block;
+}
