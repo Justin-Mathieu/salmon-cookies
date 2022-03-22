@@ -65,7 +65,7 @@ function time() {
   salesData.appendChild(header);
   for (let i = 0; i < timeofDay.length; i++) {
     let headRow = document.createElement('td');
-    headRow.textContent = timeofDay[i];
+    headRow.textContent = `${timeofDay[i]}`;
     salesData.appendChild(headRow);
   }
 }
