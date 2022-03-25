@@ -33,7 +33,7 @@ nav a {
   color: black;
 }
 main {
-  width: 960px;
+  width: max-content;
   display: flex;
   flex-wrap: wrap;
   margin: auto;
@@ -104,12 +104,16 @@ footer i {
   padding-left: 50px;
   /* color:aliceblue: */
 }
+th {
+  background-color: aliceblue;
+}
 tr {
+  background-color: aliceblue;
   border: 5px solid black;
   width: 100px;
   height: 20px;
 }
 td {
   /* background-color: red; */
-  border: 5px solid black;
+  /* border: 5px solid black; */
 }

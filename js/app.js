@@ -25,6 +25,7 @@ let salesData = document.getElementById('salesData');
 let tableBody = document.getElementById('tableBody');
 let footerTotal = document.getElementById('footerTotal');
 let timeofDay = [
+  '',
   '6am',
   '7am',
   '8am',
@@ -66,23 +67,24 @@ function time() {
   for (let i = 0; i < timeofDay.length; i++) {
     let headRow = document.createElement('td');
     headRow.textContent = `${timeofDay[i]}`;
-    salesData.appendChild(headRow);
+    header.appendChild(headRow);
   }
 }
 time();
 Store.prototype.render = function () {
   this.cookiesPerhour();
   // for (let i = 0; i < locations.length; i++) {
-  let locationRow = document.createElement('tr');
-  tableBody.appendChild(locationRow);
-  let locationName = document.createElement('td');
+  // let locationRow = document.createElement('tr');
+  // tableBody.appendChild(locationRow);
+  let locationName = document.createElement('tr');
   locationName.textContent = this.name;
   tableBody.appendChild(locationName);
 
-  for (let j = 0; j < timeofDay.length; j++) {
+  for (let j = 1; j < timeofDay.length; j++) {
     let dataCell = document.createElement('td');
     dataCell.textContent = this.salesPerhour[j];
-    tableBody.appendChild(dataCell);
+    locationName.appendChild(dataCell);
+    // tableBody.appendChild(dataCell);
   }
   // function footer() {
   let footerRow = document.createElement('th');
