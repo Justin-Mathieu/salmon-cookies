@@ -13,6 +13,13 @@ header {
   border-bottom: 10px;
   align-items: center;
 }
+h1 {
+  font-family: 'Allura', cursive;
+  font-size: 50px;
+  font-weight: bolder;
+  color: aliceblue;
+  background-color: grey;
+}
 /* header h1 {
   border: 4px solid black;
   margin-left: 20px; */
@@ -73,6 +80,11 @@ h3 {
 #about img {
   width: 950px;
 }
+p,
+ul {
+  color: red;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 #about p {
   background-color: beige;
   width: 600px;
@@ -111,6 +123,8 @@ tr {
   background-color: aliceblue;
 }
 td {
+  color: blueviolet;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: aliceblue;
   width: 100px;
 }
@@ -120,4 +134,9 @@ form {
 label {
   display: block;
   padding: 20px;
+}
+footer a {
+  color: aliceblue;
+  border: 2px solid aliceblue;
+  text-decoration: none;
 }
